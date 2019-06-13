@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 /**
  * @description Sends the SMS code for authorisation to the user's phone number
  * @param phoneNumber
@@ -15,4 +16,13 @@ declare function getToken(
   phoneNumber: string,
   smsCode: string,
 ): Promise<string>;
-export { sendSMSCode, getToken };
+/**
+ * @todo return promise containing the balances
+ * @description Gets all balances
+ * @param userAccessToken
+ * @returns Promise<AxiosResponse<any>> (for now)
+ */
+declare function getAllBalances(
+  userAccessToken: string,
+): Promise<AxiosResponse<any>>;
+export { sendSMSCode, getToken, getAllBalances };
