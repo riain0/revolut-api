@@ -1,0 +1,46 @@
+{
+  "name": "revolut-api",
+  "version": "0.0.1",
+  "description": "TypeScript Revolut API",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "tslint *.ts",
+    "pr": "prettier --write *.ts",
+    "type-check": "tsc --noEmit",
+    "coveralls": "jest && cat ./coverage/lcov.info | coveralls",
+    "prepublish": "yarn type-check && yarn pr && yarn lint && yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [
+    "revolut"
+  ],
+  "author": "stetchy",
+  "license": "MIT",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.8",
+    "coveralls": "^3.0.4",
+    "husky": "^2.4.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.2.0",
+    "prettier": "^1.18.2",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  }
+}
